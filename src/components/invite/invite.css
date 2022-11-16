@@ -1,0 +1,31 @@
+.invite-card{
+    display: grid;
+    justify-items: center;
+}
+
+.invite-user-msg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.invite-alert{
+    border: solid 1px red;
+    background-color: #f8d7da;
+}
+
+.invite-ok{
+    border: solid 1px #149c5f;
+    background-color: #d1e7dd;
+}
+
+.invite-alert-card{
+    border-radius: var(---brad);
+    padding: 1rem;
+    text-align: center;
+    display: grid;
+    grid-gap: 0.5rem;
+    word-wrap: break-word;
+    word-break: normal;
+}

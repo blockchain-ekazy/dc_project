@@ -1,0 +1,16 @@
+.footer{
+    padding: 1rem;
+    display: grid;
+    background-color: var(---primary-col);
+    text-align: center;
+    min-height: 10vh;
+    margin-top: 1rem;
+    align-items: center;
+}
+
+.footer-menu{
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+}

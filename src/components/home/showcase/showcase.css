@@ -1,0 +1,33 @@
+.showcase{
+    word-wrap: break-word;
+    word-break:normal;
+    padding: 2rem;
+    display: grid;
+    grid-gap: 1rem;
+    align-items: center;
+}
+
+.main-txt{
+    font-size: 3rem;
+    font-weight: 600;
+}
+
+.sec-txt{
+    font-size: 2rem;
+    color: var(---light-grey);
+}
+
+.show-btn-wrap{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.showcase-btn{
+    text-align: center;
+}
+
+.showcase-btn:hover{
+    background-color: var(---primary-col);
+    color: var(---light-txt);
+}

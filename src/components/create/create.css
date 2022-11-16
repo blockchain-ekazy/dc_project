@@ -1,0 +1,16 @@
+
+.create-input{
+    width: 100%;
+    padding: 0.5rem;
+}
+
+.create-inner-wrap{
+    display: grid;
+    grid-gap: 0.5rem;
+    max-width: 500px;
+    min-height: 100px;
+    align-items: center;
+    padding: 1rem;
+    border-radius: var(---brad);
+    background-color: var(---primary-col);
+}

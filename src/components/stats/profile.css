@@ -1,0 +1,37 @@
+.listprice-input{
+    width: 100%;
+    padding: 0.5rem;
+}
+
+.whitelist-account-wrap, .invitelink-wrap{
+    width: 100%;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.whitelist-info{
+    display: grid;
+    grid-gap: 1rem;
+}
+
+.enable-invite-wrap{
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.items-main-wrap{
+    display: grid;
+    grid-gap: 2rem;
+    grid-template-columns: 1fr 1fr;
+}
+
+.item-img-wrap{
+    height: 300px;
+}
+
+.items-wrap{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+}

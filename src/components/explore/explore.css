@@ -1,0 +1,36 @@
+.explore-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 2rem;
+}
+
+.ex-img-wrap{
+    height: 400px;
+}
+
+.explore-card{
+    position: relative;
+}
+
+.explore-wrap{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1rem;
+}
+.explore-buy-btn{
+    width: 100%;
+    border: none;
+    padding: 1rem;
+    background-color: var(---primary-col);
+    cursor: pointer;
+}
+
+.buynow-action{
+    border: var(---primary-col) solid 1px;
+    background-color: var(---third-col);
+    padding: 0.2rem;
+    border-radius: var(---brad);
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}

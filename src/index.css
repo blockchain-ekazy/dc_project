@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root{
+  ---light-txt:#fff;
+  ---light-bg: #fff;
+  ---primary-col: #32ccce;
+  ---second-col: #cdf3f3;
+  ---third-col:#c5e886;
+  ---light-grey: rgba(182, 182, 182, 0.726);
+  ---dark-grey: #515a62;
+  ---brad:0.6em;
+}
+
+body{
+  font-family: 'Roboto', sans-serif;
+}
+
+a{
+  text-decoration: none;
+  color: inherit;
+}
+textarea{
+  resize: none;
+}
+.cover{
+  position: fixed;
+  background-color: rgba(128, 128, 128, 0.103);
+  width: 100%;
+  height: 100%;
+}
+
+.blur{
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+}
+
+.mm-width-0{
+  width: 0px;
+}
+
+.mm-width-full{
+  width: 100%!important;
+}
+
+.pd1{
+  padding: 1rem;
+}
+
+.mm-width-420{
+  width: 420px!important;
+}
+
+
+.mg2{
+  margin: 2rem 0;
+}
+
+.primary-card{
+  background-color: var(---primary-col);
+  border-radius: var(---brad);
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.main-wrap{
+  padding-top: 15vh;
+  max-width: 90vw;
+  min-height: 90vh;
+  margin: 0px auto;
+}
+
+.hide{
+  display: none!important;
+}
+
+.navbar a {
+  text-decoration: none;
+}
+
+.btn{
+  border: none;
+  padding: 1rem;
+  border-radius: 0.6em;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.btn-thin{
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.6em;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.dark-btn{
+  color: var(---light-txt);
+  background-color: var(---primary-col);
+  border: solid 2px var(---primary-col)
+}
+
+.green-btn{
+  color: var(---dark-grey);
+  background-color: var(---third-col);
+  border: solid 2px var(---third-col)
+}
+
+.sec-title{
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: left;
+}
+
+.sm-title{
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+.light-btn{
+  width: 100%;
+  background-color: var(---light-txt);
+  border: 2px solid var(---light-grey);
+  color: var(---primary-col);
+}
+
+.showcase-feat{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
