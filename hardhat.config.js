@@ -17,14 +17,14 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
  * @type import('hardhat/config').HardhatUserConfig
  */
 
-const GOERLI_URL = "https://eth-goerli.g.alchemy.com/v2/iVdQ5frXbmIvL17Cei12tckgBCRuGxUE";
-const PRIVATE_KEY = "2e01d593a5cc21264954b32c09bcb05e48b1c47a2796fd5ab77ad5f70e72bd48;
+const RINKEBY_URL = process.env.ALCHEMY_RINKEBY;
+const PRIVATE_KEY = process.env.PRIVATE_KEY;
 
 module.exports = {
   solidity: "0.8.4",
   networks: {
-    goerli: {
-      url: GOERLI_URL,
+    rinkeby: {
+      url: RINKEBY_URL,
       accounts: [PRIVATE_KEY],
     },
   },

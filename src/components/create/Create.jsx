@@ -3,9 +3,9 @@ import React from "react";
 import { create as IPFSHTTPClient } from "ipfs-http-client";
 import { useState } from "react";
 import "./create.css";
-
 import { Buffer } from "safe-buffer";
 
+// const client = IPFSHTTPClient('https://infura-ipfs.io:5001/api/v0')
 const client = IPFSHTTPClient({
   host: "infura-ipfs.io",
   port: 5001,
@@ -29,7 +29,6 @@ const Create = (props) => {
   const [isConfirming, setIsConfirming] = useState(false);
   const mrktContract = props.marketplace;
   const nftContract = props.nft;
-  let ipfs;
 
   const uploadtoIPFS = async (e) => {
     e.preventDefault();
@@ -37,7 +36,7 @@ const Create = (props) => {
     if (file) {
       try {
         const result = await client.add(file);
-        console.log(result);
+        console.log(`https://infura-ipfs.io/ipfs/${result.path}`);
         setImage(`https://infura-ipfs.io/ipfs/${result.path}`);
       } catch (err) {
         console.log("IPFS image upload error", err);
@@ -45,16 +44,14 @@ const Create = (props) => {
     }
   };
 
-  const createNFT = async (e) => {
-    e.preventDefault();
+  const createNFT = async () => {
     if (!image || !name) {
       return;
     }
     try {
       const data = JSON.stringify({ image, name, description });
       const result = await client.add(data);
-      console.log("Metadata added to IPFS۔");
-      console.log(result);
+      console.log("Metadata added to IPFS");
       mint(result);
     } catch (err) {
       console.log("Error creating Metadata", err);
@@ -62,7 +59,7 @@ const Create = (props) => {
   };
 
   const mint = async (result) => {
-    console.log(props);
+    console.log(`https://infura-ipfs.io/ipfs/${result.path}`);
     const uri = `https://infura-ipfs.io/ipfs/${result.path}`;
     try {
       const tx = await nftContract.mint(uri, royaltyPrc);
@@ -82,50 +79,46 @@ const Create = (props) => {
       <div className="sec-title mg2">Link A Code</div>
       <div className="create-nft-wrap">
         {!isConfirming && !isMinted ? (
-          <>
-            <form encType="multipart/form-data">
-              <div className="create-inner-wrap">
-                <div>
-                  <input
-                    className="create-input"
-                    type="file"
-                    name="file"
-                    onChange={uploadtoIPFS}
-                  />
-                </div>
-                <div>
-                  <input
-                    className="create-input"
-                    type="text"
-                    onChange={(e) => setName(e.target.value)}
-                    placeholder="Item Name"
-                  />
-                </div>
-                <div>
-                  <textarea
-                    className="create-input"
-                    type="text"
-                    onChange={(e) => setDescription(e.target.value)}
-                    placeholder="Description"
-                  />
-                </div>
-                <div>
-                  <input
-                    className="create-input"
-                    type="number"
-                    onChange={(e) => setRoyaltyPrc(e.target.value)}
-                    max={50}
-                    placeholder="Percent Royalty"
-                  />
-                </div>
-                <div>
-                  <button className="create-input" onClick={createNFT}>
-                    Mint NFT
-                  </button>
-                </div>
-              </div>
-            </form>
-          </>
+          <div className="create-inner-wrap">
+            <div>
+              <input
+                className="create-input"
+                type="file"
+                name="file"
+                onChange={uploadtoIPFS}
+              />
+            </div>
+            <div>
+              <input
+                className="create-input"
+                type="text"
+                onChange={(e) => setName(e.target.value)}
+                placeholder="Item Name"
+              />
+            </div>
+            <div>
+              <textarea
+                className="create-input"
+                type="text"
+                onChange={(e) => setDescription(e.target.value)}
+                placeholder="Description"
+              />
+            </div>
+            <div>
+              <input
+                className="create-input"
+                type="number"
+                onChange={(e) => setRoyaltyPrc(e.target.value)}
+                max={50}
+                placeholder="Percent Royalty"
+              />
+            </div>
+            <div>
+              <button className="create-input" onClick={createNFT}>
+                Mint NFT
+              </button>
+            </div>
+          </div>
         ) : isConfirming && !isMinted ? (
           <div className="create-inner-wrap">
             <div>Confirming Transaction...</div>
