@@ -31,13 +31,6 @@ const Create = (props) => {
   const [isMinted, setIsMinted] = useState(false);
   const [isConfirming, setIsConfirming] = useState(false);
   const mrktContract = props.marketplace;
-  const provider = new ethers.providers.Web3Provider(window.ethereum);
-  const signer = provider.getSigner();
-  const nftContract = new ethers.Contract(
-    "0x9CB46FeeB4642B0A8D1C9c14A50ca65F6c088907",
-    NFTABI.abi,
-    signer
-  );
 
   const uploadtoIPFS = async (e) => {
     e.preventDefault();
@@ -53,6 +46,15 @@ const Create = (props) => {
     }
   };
   const mint = async (result) => {
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const signer = provider.getSigner();
+    let m = await provider.send("eth_requestAccounts", []);
+    let nftContract = new ethers.Contract(
+      "0x9CB46FeeB4642B0A8D1C9c14A50ca65F6c088907",
+      NFTABI.abi,
+      signer
+    );
+
     console.log(`https://infura-ipfs.io/ipfs/${result.path}`);
     const uri = `https://infura-ipfs.io/ipfs/${result.path}`;
     try {
