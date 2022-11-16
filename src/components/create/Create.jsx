@@ -4,6 +4,9 @@ import { create as IPFSHTTPClient } from "ipfs-http-client";
 import { useState } from "react";
 import "./create.css";
 import { Buffer } from "safe-buffer";
+import { ethers } from "ethers";
+
+import NFTABI from "../../contractData/DeloreanOriginals.json";
 
 // const client = IPFSHTTPClient('https://infura-ipfs.io:5001/api/v0')
 const client = IPFSHTTPClient({
@@ -28,7 +31,13 @@ const Create = (props) => {
   const [isMinted, setIsMinted] = useState(false);
   const [isConfirming, setIsConfirming] = useState(false);
   const mrktContract = props.marketplace;
-  const nftContract = props.nft;
+  const provider = new ethers.providers.Web3Provider(window.ethereum);
+  const signer = provider.getSigner();
+  const nftContract = new ethers.Contract(
+    "0x9CB46FeeB4642B0A8D1C9c14A50ca65F6c088907",
+    NFTABI.abi,
+    signer
+  );
 
   const uploadtoIPFS = async (e) => {
     e.preventDefault();
@@ -43,21 +52,6 @@ const Create = (props) => {
       }
     }
   };
-
-  const createNFT = async () => {
-    if (!image || !name) {
-      return;
-    }
-    try {
-      const data = JSON.stringify({ image, name, description });
-      const result = await client.add(data);
-      console.log("Metadata added to IPFS");
-      mint(result);
-    } catch (err) {
-      console.log("Error creating Metadata", err);
-    }
-  };
-
   const mint = async (result) => {
     console.log(`https://infura-ipfs.io/ipfs/${result.path}`);
     const uri = `https://infura-ipfs.io/ipfs/${result.path}`;
@@ -71,6 +65,19 @@ const Create = (props) => {
       }
     } catch (err) {
       console.log("error minting uri", err);
+    }
+  };
+  const createNFT = async () => {
+    if (!image || !name) {
+      return;
+    }
+    try {
+      const data = JSON.stringify({ image, name, description });
+      const result = await client.add(data);
+      console.log("Metadata added to IPFS");
+      mint(result);
+    } catch (err) {
+      console.log("Error creating Metadata", err);
     }
   };
 
