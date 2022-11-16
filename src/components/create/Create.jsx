@@ -62,7 +62,7 @@ const Create = (props) => {
   };
 
   const mint = async (result) => {
-    console.log(result);
+    console.log(props);
     const uri = `https://infura-ipfs.io/ipfs/${result.path}`;
     try {
       const tx = await nftContract.mint(uri, royaltyPrc);
