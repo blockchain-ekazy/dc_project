@@ -39,8 +39,10 @@ const Create = (props) => {
       try {
         const result = await client.add(file);
         console.log(result);
-        console.log(`https://ipfs.io/ipfs/${result.path}`);
-        setImage(`https://ipfs.io/ipfs/${result.path}`);
+        console.log(
+          `https://deloreanmarkets.infura-ipfs.io/ipfs/${result.path}`
+        );
+        setImage(`https://deloreanmarkets.infura-ipfs.io/ipfs/${result.path}`);
       } catch (err) {
         console.log("IPFS image upload error", err);
       }
@@ -51,13 +53,13 @@ const Create = (props) => {
     const signer = provider.getSigner();
     let m = await provider.send("eth_requestAccounts", []);
     let nftContract = new ethers.Contract(
-      "0x69Ba0F1D9F38a77D99Fb26De03a6560D15CBB5e4",
+      "0x8eceF937192A45cddf5f739263eD7f8940b257D1",
       NFTABI.abi,
       signer
     );
 
-    console.log(`https://ipfs.io/ipfs/${result.path}`);
-    const uri = `https://ipfs.io/ipfs/${result.path}`;
+    console.log(`https://deloreanmarkets.infura-ipfs.io/ipfs/${result.path}`);
+    const uri = `https://deloreanmarkets.infura-ipfs.io/ipfs/${result.path}`;
     try {
       const tx = await nftContract.mint(uri, royaltyPrc);
       setIsConfirming(true);

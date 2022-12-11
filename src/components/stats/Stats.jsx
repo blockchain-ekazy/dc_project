@@ -19,15 +19,11 @@ const Stats = (props) => {
     if (nftContract && mrktContract) {
       const tokens = await nftContract.getTokenIds();
       const owned = [];
-      console.log(tokens);
 
       for (let i = 0; i <= tokens.length; i++) {
         if (tokens[i]) {
           const uri = await nftContract.tokenURI(tokens[i]);
-          console.log(uri);
-          const response = await fetch(
-            "https://ipfs.io/ipfs/QmeG6nAF5Dg2vjhoEb72AwbvvpHeX3yh48hqNL7yCn9fWk"
-          );
+          const response = await fetch(uri);
           const metadata = await response.json();
           const temp = {};
           if (metadata) {
