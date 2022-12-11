@@ -8,7 +8,7 @@ import { ethers } from "ethers";
 
 import NFTABI from "../../contractData/DeloreanOriginals.json";
 
-// const client = IPFSHTTPClient('https://infura-ipfs.io:5001/api/v0')
+// const client = IPFSHTTPClient('https://ipfs.io:5001/api/v0')
 const client = IPFSHTTPClient({
   host: "infura-ipfs.io",
   port: 5001,
@@ -38,8 +38,9 @@ const Create = (props) => {
     if (file) {
       try {
         const result = await client.add(file);
-        console.log(`https://infura-ipfs.io/ipfs/${result.path}`);
-        setImage(`https://infura-ipfs.io/ipfs/${result.path}`);
+        console.log(result);
+        console.log(`https://ipfs.io/ipfs/${result.path}`);
+        setImage(`https://ipfs.io/ipfs/${result.path}`);
       } catch (err) {
         console.log("IPFS image upload error", err);
       }
@@ -50,13 +51,13 @@ const Create = (props) => {
     const signer = provider.getSigner();
     let m = await provider.send("eth_requestAccounts", []);
     let nftContract = new ethers.Contract(
-      "0x9CB46FeeB4642B0A8D1C9c14A50ca65F6c088907",
+      "0x69Ba0F1D9F38a77D99Fb26De03a6560D15CBB5e4",
       NFTABI.abi,
       signer
     );
 
-    console.log(`https://infura-ipfs.io/ipfs/${result.path}`);
-    const uri = `https://infura-ipfs.io/ipfs/${result.path}`;
+    console.log(`https://ipfs.io/ipfs/${result.path}`);
+    const uri = `https://ipfs.io/ipfs/${result.path}`;
     try {
       const tx = await nftContract.mint(uri, royaltyPrc);
       setIsConfirming(true);
