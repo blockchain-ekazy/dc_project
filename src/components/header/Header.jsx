@@ -33,7 +33,7 @@ const Header = (props) => {
                             <Link to="/market">Market</Link>
                         </div>
                         <div className="nav-btn">
-                            <Link to="/items">Items</Link>
+                            <Link to="/items">My Items</Link>
                         </div>
                         <div className="nav-btn">
                             <Link to="/link">Link</Link>
