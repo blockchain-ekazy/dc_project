@@ -26,13 +26,12 @@ const ListedItems = ({getItems, mrktContract}) => {
                                 </div>
                             </div>
                             <div>
-                                <div>NFT: # {Number(item.tokenId)}</div>
-                                <div>Item: # {Number(item.itemId)}</div>
+                                <div>Item ID: # {Number(item.tokenId)}</div>
                             </div>
                         </div>
                         <div>
                             <button className="explore-buy-btn" onClick={(e) => deListNFT(item.itemId)}>
-                                DeList
+                                Delist
                             </button>
                         </div>
                     </div>
@@ -40,7 +39,7 @@ const ListedItems = ({getItems, mrktContract}) => {
                 ))
             :
             <div>
-                No NFTs to display
+                No items to display
             </div>
             }
         </div>
