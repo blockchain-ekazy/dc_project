@@ -127,7 +127,7 @@ const Create = (props) => {
             </div>
             <div>
               <button className="create-input" onClick={createNFT}>
-                Mint NFT
+                Create item
               </button>
             </div>
           </div>
@@ -137,7 +137,7 @@ const Create = (props) => {
           </div>
         ) : !isConfirming && isMinted ? (
           <div className="create-inner-wrap">
-            <div>NFT Minted!</div>
+            <div>Item created!</div>
           </div>
         ) : (
           <div className="create-inner-wrap">
