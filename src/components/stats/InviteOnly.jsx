@@ -53,7 +53,6 @@ const InviteOnly = ({mrktContract, nftContract}) => {
                                     </div>
                                     <div>
                                         <div>Token ID: # {Number(item.tokenID)}</div>
-                                        <div>Item: # {Number(item.itemID)}</div>
                                     </div>
                                     
                                 </div>
@@ -77,7 +76,7 @@ const InviteOnly = ({mrktContract, nftContract}) => {
                                 </div>
                                 <div>
                                     <button className="explore-buy-btn" onClick={(e) => deListNFT(item.itemID)}>
-                                        DeList
+                                        Delist
                                     </button>
                                 </div>
                             </div>
@@ -85,7 +84,7 @@ const InviteOnly = ({mrktContract, nftContract}) => {
                     ))
                 :
                 <div>
-                    No NFTs to display
+                    No items to display
                 </div>
             }
         </div>
