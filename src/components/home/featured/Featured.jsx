@@ -59,7 +59,7 @@ const Featured = (props) => {
                         {
                         royaltyReceiver ?
                         <div className='buynow-action'>
-                            {Number(royaltyPercent)}% Royalties 
+                            Royalty: {Number(royaltyPercent)}% 
                         </div>
                         :<></>
                         }
@@ -76,7 +76,7 @@ const Featured = (props) => {
                         </div>
                         <div>
                             <button className='explore-buy-btn' onClick={(e)=>buyMarketItem(featuredItems)}>
-                                Buy For {ethers.utils.formatEther(Number(featuredItems.price).toString())} ETH
+                                Buy for {ethers.utils.formatEther(Number(featuredItems.price).toString())} ETH
                             </button>
                         </div>
                     </div>
@@ -85,7 +85,7 @@ const Featured = (props) => {
                             <button className='next-icon green-icon'>{'>'}</button>
                         </div>
                         <div>
-                            <a href="">Learn more about DeloreanCodes</a>
+                            <a href="">Learn more about Delorean Codes</a>
                         </div>
                     </div>
                 </div>
