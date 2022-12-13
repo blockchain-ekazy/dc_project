@@ -97,7 +97,7 @@ const Explore = (props) => {
                       {royaltyReceiver ? (
                         <div>
                           <small>
-                            Royalty Receiver:{" "}
+                            Item owner:{" "}
                             {royaltyReceiver.slice(0, 2) +
                               "..." +
                               royaltyReceiver.slice(38, 43)}
@@ -117,7 +117,7 @@ const Explore = (props) => {
                     className="explore-buy-btn"
                     onClick={(e) => buyMarketItem(item)}
                   >
-                    Buy For{" "}
+                    Buy for{" "}
                     {ethers.utils.formatEther(
                       Number(item.totalPrice).toString()
                     )}{" "}
