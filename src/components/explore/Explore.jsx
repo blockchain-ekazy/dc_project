@@ -78,7 +78,7 @@ const Explore = (props) => {
               <div className="featured-card">
                 {royaltyReceiver ? (
                   <div className="buynow-action">
-                    {Number(royaltyPercent)}% royalty
+                    Royalty: {Number(royaltyPercent)}%
                   </div>
                 ) : (
                   <></>
@@ -97,7 +97,7 @@ const Explore = (props) => {
                       {royaltyReceiver ? (
                         <div>
                           <small>
-                            Item owner:{" "}
+                            Initial owner:{" "}
                             {royaltyReceiver.slice(0, 2) +
                               "..." +
                               royaltyReceiver.slice(38, 43)}
