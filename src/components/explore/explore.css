@@ -26,8 +26,8 @@
 }
 
 .buynow-action{
-    border: var(---primary-col) solid 1px;
-    background-color: var(---third-col);
+    border: black solid 2px;
+    background-color: white;
     padding: 0.2rem;
     border-radius: var(---brad);
     position: absolute;
